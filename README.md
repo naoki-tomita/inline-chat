@@ -2,4 +2,4 @@
 
 You can put question chat on anywhare.
 
-[demo]()
+[demo](https://naoki-tomita.github.io/inline-chat/)
