@@ -10,5 +10,8 @@
   "scripts": {
     "predeploy": "cd app && yarn build && cd ..",
     "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "@vue/cli": "^4.3.1"
   }
 }

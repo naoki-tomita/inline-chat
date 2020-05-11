@@ -5,12 +5,17 @@ import { Messages } from "./components/Messages";
 import Container from '@material-ui/core/Container';
 import { collection } from "./firebase/app";
 
+function scrollToBottom() {
+  document.body.parentElement!.scrollTop = document.body.scrollHeight;
+}
+
 function App() {
   const [state, setState] = useState<{ text: string, from: "customer" | "company" }[]>([]);
   useEffect(() => {
     collection.orderBy("time").onSnapshot((snampshot) => {
       const result = snampshot.docs.map(it => it.data());
       setState(result as any)
+      scrollToBottom();
     });
   }, []);
   return (

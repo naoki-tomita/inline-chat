@@ -4,13 +4,16 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
-import { collection } from "../firebase/app";
+import { collection, waitForResponse } from "../firebase/app";
 
 export const MessegeInput: FC = () => {
   const [text, setState] = useState("");
   function send() {
-    text && collection.add({ text, from: "customer", time: Date.now() });
-    setState("");
+    if (text) {
+      collection.add({ text, from: "customer", time: Date.now() });
+      waitForResponse();
+      setState("");
+    }
   }
   return (
     <AppBar position="fixed" color="primary" style={{ bottom: 0, top: "auto" }}>
