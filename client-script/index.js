@@ -1,5 +1,5 @@
 const iframe = document.createElement("iframe");
-iframe.src = "https://inline-chat-1c4e4.web.app/"
+iframe.src = "https://inline-chat-1c4e4.web.app/app/"
 iframe.width = "320";
 iframe.height = "520";
 iframe.style.position = "fixed";

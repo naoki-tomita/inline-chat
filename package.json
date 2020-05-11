@@ -8,7 +8,11 @@
     "firebase-tools": "^8.0.2"
   },
   "scripts": {
-    "predeploy": "cd app && yarn build && cd ..",
+    "build:cs-app": "cd cs-app && yarn build && cd ..",
+    "build:app": "cd app && yarn build && cd ..",
+    "build": "yarn build:cs-app && yarn build:app",
+    "clean": "rm -rf ./dist && mkdir ./dist",
+    "predeploy": "yarn build && yarn clean && cp -r ./app/build ./dist/app && cp -r ./cs-app/dist ./dist/cs-app",
     "deploy": "firebase deploy"
   },
   "dependencies": {
